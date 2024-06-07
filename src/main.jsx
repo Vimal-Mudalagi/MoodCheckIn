@@ -1,5 +1,5 @@
 import React from 'react';
-import { FirebaseProvider } from "./Context/Firebase"
+// import { FirebaseProvider } from "./Context/Firebase"
 import RegisterPage from './Pages/Register.jsx';
 import LoginPage from './Pages/Login.jsx';
 import { createRoot } from 'react-dom/client';
@@ -23,8 +23,6 @@ const router = createBrowserRouter(
       <Route path='Contact' element={<Contact />} />
       <Route path="/Register" element={<RegisterPage />} />
       <Route path="/Login" element={<LoginPage />} />
-      <Route path="/History" element={<History />} />
-
     </Route>
   )
 );
@@ -35,9 +33,9 @@ const rootInstance = createRoot(root);
 rootInstance.render(
   <RouterProvider router={router}>
     <React.StrictMode>
-      <FirebaseProvider>
+      {/* <FirebaseProvider> */}
         <App />
-      </FirebaseProvider>
+      {/* </FirebaseProvider> */}
     </React.StrictMode>
   </RouterProvider>
 );
