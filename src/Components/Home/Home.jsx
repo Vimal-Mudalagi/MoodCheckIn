@@ -51,7 +51,7 @@ const moodData = [
 const Home = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   return (
-    <div className="bg-[#f1f2ec]">
+    <div className="bg-[#f1f2ec] min-w-full min-h-screen py-10">
       <h1 className="text-4xl font-bold text-center p-2">
         Mood<span className="text-[#a486f4]">CheckIn</span>
       </h1>
@@ -78,6 +78,7 @@ const Home = () => {
             return (
               <div className="hover:scale-105 cursor-pointer" key={mood.id}>
                 <Card
+                  id={mood.id}
                   imgSrc={mood.imgSrc}
                   imgAlt={mood.imgAlt}
                   title={mood.title}
