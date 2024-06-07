@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <footer
       id="footer"
-      className="border w-full fixed bottom-0 flex flex-col justify-center items-center text-center bg-[#f1f2ec] pt-4"
+      className="border w-full relative bottom-0 flex flex-col justify-center items-center text-center bg-[#f1f2ec] pt-4"
     >
       <p className="font-bold text-sm">
         Made by{" "}
