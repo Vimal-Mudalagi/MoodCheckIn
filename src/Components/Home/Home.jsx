@@ -50,6 +50,7 @@ const moodData = [
 
 const Home = () => {
   const [selectedDate, setSelectedDate] = useState(null);
+
   return (
     <div className="bg-[#f1f2ec] min-w-full min-h-screen py-10">
       <h1 className="text-4xl font-bold text-center p-2">
@@ -72,8 +73,8 @@ const Home = () => {
         How are you feeling today?
       </h2>
 
-      <div className="flex items-center flex-col">
-        <div className="bg-[#f1f2ec] flex justify-around flex-wrap gap-x-4">
+      <div className="p-5 flex flex-row justify-center items-center">
+        <div className="bg-[#f1f2ec] grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {moodData.map((mood) => {
             return (
               <div className="hover:scale-105 cursor-pointer" key={mood.id}>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Input = ({ onClose, onSubmit }) => {
   const [description, setDescription] = useState("");
@@ -24,7 +24,7 @@ const Input = ({ onClose, onSubmit }) => {
         onChange={handleInputChange}
         placeholder="Enter your description..."
         rows={4}
-        cols={35}
+        cols={25}
         className="rounded-xl p-2"
       />
       <div className="button-container flex justify-center space-x-4">
