@@ -1,41 +1,49 @@
-import React from 'react';
+import React from "react";
 // import { FirebaseProvider } from "./Context/Firebase"
-import RegisterPage from './Pages/Register.jsx';
-import LoginPage from './Pages/Login.jsx';
-import { createRoot } from 'react-dom/client';
-import { RouterProvider } from 'react-router-dom';
-import App from './App.jsx';
-import './index.css';
-import Home from './Components/Home/Home.jsx';
-import About from './Components/About/About.jsx';
+import RegisterPage from "./Pages/Register.jsx";
+import LoginPage from "./Pages/Login.jsx";
+import { createRoot } from "react-dom/client";
+import { Navigate, RouterProvider } from "react-router-dom";
+import App from "./App.jsx";
+import "./index.css";
+import Home from "./Components/Home/Home.jsx";
+import About from "./Components/About/About.jsx";
+import Contact from "./Components/Contact/Contact.jsx";
+import Layout from "./Layout.jsx";
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
+import { AuthProvider, useAuth } from "./Context/AuthContext";
 
-import Contact from './Components/Contact/Contact.jsx';
-import Layout from './Layout.jsx';
-import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
-
-
+const ProtectedRoute = ({ element }) => {
+  const { user } = useAuth();
+  return user ? element : <Navigate to="/register" />;
+};
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<Layout />}>
-      <Route path='' element={<Home />} />
-      <Route path='About' element={<About />} />
-      <Route path='Contact' element={<Contact />} />
-      <Route path="/Register" element={<RegisterPage />} />
-      <Route path="/Login" element={<LoginPage />} />
+    <Route path="/" element={<Layout />}>
+      <Route path="" element={<RegisterPage />} />
+      <Route path="about" element={<About />} />
+      <Route path="contact" element={<Contact />} />
+      <Route path="register" element={<RegisterPage />} />
+      <Route path="login" element={<LoginPage />} />
+      <Route path="homepage" element={<ProtectedRoute element={<Home />} />} />
     </Route>
   )
 );
 
-const root = document.getElementById('root');
+const root = document.getElementById("root");
 const rootInstance = createRoot(root);
 
 rootInstance.render(
-  <RouterProvider router={router}>
-    <React.StrictMode>
-      {/* <FirebaseProvider> */}
+  <AuthProvider>
+    <RouterProvider router={router}>
+      <React.StrictMode>
         <App />
-      {/* </FirebaseProvider> */}
-    </React.StrictMode>
-  </RouterProvider>
+      </React.StrictMode>
+    </RouterProvider>
+  </AuthProvider>
 );
