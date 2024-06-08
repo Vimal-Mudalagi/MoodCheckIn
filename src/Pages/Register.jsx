@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword} from "firebase/auth"; 
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
 
@@ -8,6 +8,7 @@ const RegisterPage = () => {
   const [password, setPassword] = useState("");
   const { user } = useAuth();
   const navigate = useNavigate();
+  const auth = getAuth(); 
 
   useEffect(() => {
     if (user) {
@@ -81,7 +82,7 @@ const RegisterPage = () => {
           <span>----- OR -----</span>
           <button
             onClick={() => {}}
-            className="w-3/4 h-10 border rounded-lg text-center dark:bg-[#f84222] dark:hover:bg-[#cd2424] "
+            className="w-3/4 h-10 border rounded-lg text-center dark:bg-[#f84222] dark:hover:bg-[#cd2424]"
             disabled
           >
             SignUp with Google
