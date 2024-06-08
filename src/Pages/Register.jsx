@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { createUserWithEmailAndPassword} from "firebase/auth"; 
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
+import { auth } from "../helpers/Firebase"; // Import the auth object from Firebase.js
 
 const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { user } = useAuth();
   const navigate = useNavigate();
-  const auth = getAuth(); 
 
   useEffect(() => {
     if (user) {
@@ -41,7 +41,7 @@ const RegisterPage = () => {
         className="w-1/4 flex flex-col justify-center items-center gap-y-6"
       >
         <div className="w-full flex flex-row justify-between items-center gap-x-4">
-          <label form="email" className="text-lg font-semibold text-gray-900">
+          <label htmlFor="email" className="text-lg font-semibold text-gray-900">
             Your email
           </label>
           <input
@@ -57,10 +57,7 @@ const RegisterPage = () => {
         </div>
 
         <div className="w-full flex flex-row justify-between items-center gap-x-4">
-          <label
-            form="password"
-            className="text-lg font-semibold text-gray-900"
-          >
+          <label htmlFor="password" className="text-lg font-semibold text-gray-900">
             Your password
           </label>
           <input
