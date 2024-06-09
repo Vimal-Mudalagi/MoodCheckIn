@@ -19,18 +19,21 @@ import { AuthProvider, useAuth } from "./Context/AuthContext";
 
 const ProtectedRoute = ({ element }) => {
   const { user } = useAuth();
-  return user ? element : <Navigate to="/register" />;
+  console.log(user);
+  return user
+    ? element
+    : <Navigate to="/register" /> || <Navigate to="/login" />;
 };
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route path="" element={<RegisterPage />} />
       <Route path="about" element={<About />} />
       <Route path="contact" element={<Contact />} />
       <Route path="register" element={<RegisterPage />} />
       <Route path="login" element={<LoginPage />} />
-      <Route path="homepage" element={<ProtectedRoute element={<Home />} />} />
+      <Route path="" element={<ProtectedRoute element={<Home />} />} />
     </Route>
   )
 );
