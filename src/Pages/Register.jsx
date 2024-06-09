@@ -33,7 +33,7 @@ const RegisterPage = () => {
 
   return (
     <div className="w-full min-h-screen flex justify-center items-center">
-      <div className="m-4 p-4 w-full border border-black rounded-lg flex flex-col items-center justify-center gap-y-6">
+      <div className="m-4 p-4 w-full sm:w-1/2 border border-black rounded-lg flex flex-col items-center justify-center gap-y-6">
         <h1 className="text-2xl text-center font-bold my-6">
           Mood<span className="text-[#a486f4]">CheckIn</span> | Sign Up
         </h1>
@@ -45,16 +45,16 @@ const RegisterPage = () => {
           <div className="w-full flex flex-row justify-between items-center gap-x-4">
             <label
               htmlFor="email"
-              className="text-lg font-semibold text-gray-900"
+              className="text-sm sm:text-lg font-semibold text-gray-900"
             >
-              Your email
+              Your email :
             </label>
             <input
               onChange={(e) => setEmail(e.target.value)}
               value={email}
               type="email"
               id="email"
-              className="p-3 border rounded-lg"
+              className="p-2 sm:p-3 border rounded-lg w-1/2 sm:w-3/4"
               placeholder="name@acerite.com"
               autoComplete="username"
               required
@@ -64,16 +64,16 @@ const RegisterPage = () => {
           <div className="w-full flex flex-row justify-between items-center gap-x-4">
             <label
               htmlFor="password"
-              className="text-lg font-semibold text-gray-900"
+              className="text-sm sm:text-lg font-semibold text-gray-900"
             >
-              Your password
+              Your password :
             </label>
             <input
               onChange={(e) => setPassword(e.target.value)}
               value={password}
               type="password"
               id="Password"
-              className="p-3 border rounded-lg"
+              className="p-2 sm:p-3 border rounded-lg w-1/2 sm:w-3/4"
               placeholder="Your Password"
               autoComplete="current-password"
               required
@@ -95,7 +95,7 @@ const RegisterPage = () => {
           </div>
         </form>
 
-        <h3 className="text-lg text-center font-bold my-4">
+        <h3 className="text-base text-center font-bold my-4">
           Already have an account?{" "}
           <NavLink to={"/login"}>
             <span className="text-[#a486f4]">Login</span>
