@@ -12,7 +12,7 @@ const RegisterPage = () => {
 
   useEffect(() => {
     if (user) {
-      navigate("/homepage");
+      navigate("/");
     }
   }, [user, navigate]);
 
