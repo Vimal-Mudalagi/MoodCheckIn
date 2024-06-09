@@ -95,12 +95,12 @@ const RegisterPage = () => {
           </div>
         </form>
 
-        <h1 className="text-lg text-center font-bold my-4">
+        <h3 className="text-lg text-center font-bold my-4">
           Already have an account?{" "}
           <NavLink to={"/login"}>
             <span className="text-[#a486f4]">Login</span>
           </NavLink>
-        </h1>
+        </h3>
       </div>
     </div>
   );
